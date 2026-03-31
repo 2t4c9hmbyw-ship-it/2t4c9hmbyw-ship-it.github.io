@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander Lowery | IT Resilience Portfolio</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2d;
+      --panel: rgba(12, 24, 40, 0.9);
+      --line: rgba(88, 166, 255, 0.22);
+      --text: #eaf2ff;
+      --muted: #a9bbd3;
+      --accent: #58a6ff;
+      --accent-2: #7ee787;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(88,166,255,0.14), transparent 25%),
+        radial-gradient(circle at top left, rgba(126,231,135,0.08), transparent 18%),
+        linear-gradient(180deg, #040b14 0%, #07111f 45%, #0a1424 100%);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(4, 11, 20, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(88,166,255,0.08);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 0.8rem; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+    h3 { font-size: 1.2rem; }
+
+    .lead {
+      max-width: 760px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .hero-card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card { padding: 1.5rem; }
+    .panel { padding: 1.35rem; }
+
+    .tagline {
+      font-size: clamp(1.05rem, 2vw, 1.45rem);
+      font-weight: 700;
+      color: #dbe9ff;
+      margin-bottom: 1rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #2f81f7); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); }
+
+    .quick-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .quick-list li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+    }
+
+    .quick-list li:last-child { border-bottom: 0; }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.25rem;
+      max-width: 760px;
+    }
+
+    .section-header p { color: var(--muted); margin: 0; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project {
+      padding: 1.35rem;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10, 20, 36, 0.96), rgba(8, 16, 28, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .project ul, .skills ul, .plain-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .kpi {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .resume-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 4.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Alexander Lowery</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">IT Resilience • Disaster Recovery • Infrastructure</div>
+        <h1>Bridging Emergency Management and Information Technology.</h1>
+        <p class="lead">
+          I am Alexander Lowery, an Emergency Management student at Millersville University and Student Help Desk Lead with hands-on experience in IT operations, disaster recovery planning, business continuity, and infrastructure support.
+        </p>
+        <div class="tagline">Expected Graduation: December 2026</div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Quick Snapshot</h3>
+        <ul class="quick-list">
+          <li><strong>Role:</strong> Student Help Desk Lead</li>
+          <li><strong>University:</strong> Millersville University</li>
+          <li><strong>Focus:</strong> Disaster recovery, continuity, and resilient IT operations</li>
+          <li><strong>Tools:</strong> Active Directory, Microsoft 365, Entra ID, VMware, SysAid, Cisco ISE</li>
+          <li><strong>Certifications:</strong> CompTIA Network+ and Security+ in progress</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Me</h2>
+          <p>
+            My work sits at the intersection of emergency management and information technology. Through campus IT leadership and disaster recovery planning, I focus on how organizations can maintain operations, recover from disruption, and build stronger resilience into the systems they depend on every day.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="panel">
+            <div class="kpi">30–60</div>
+            <div class="muted">SysAid tickets managed daily in campus IT operations.</div>
+          </div>
+          <div class="panel">
+            <div class="kpi">15–20</div>
+            <div class="muted">Student help desk employees supported and trained.</div>
+          </div>
+          <div class="panel">
+            <div class="kpi">~60%</div>
+            <div class="muted">First-call resolution rate in a fast-paced support environment.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p>These projects reflect the mix of technical support, infrastructure coordination, and resilience planning that defines my work in university IT and continuity-focused environments.</p>
+        </div>
+        <div class="grid-2">
+          <article class="project">
+            <h3>University IT Disaster Recovery Plan</h3>
+            <p class="muted">A capstone-focused planning effort centered on continuity, recovery priorities, and operational resilience in a university IT environment.</p>
+            <ul>
+              <li>Developed a structured disaster recovery planning workflow for university IT operations.</li>
+              <li>Integrated business continuity concepts, dependency mapping, and recovery priorities.</li>
+              <li>Used Microsoft Teams and Loop to organize timelines, milestones, and stakeholder coordination.</li>
+              <li>Focused on realistic scenarios such as network outages, account compromise, and provider-side disruptions.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <h3>Engineering Lab Infrastructure Upgrade</h3>
+            <p class="muted">A campus technology deployment project involving CAD lab systems, provisioning, and coordination across multiple technical requirements.</p>
+            <ul>
+              <li>Helped oversee the upgrade of approximately 60 lab machines.</li>
+              <li>Supported shared provisioning package deployment and software setup.</li>
+              <li>Coordinated MAC address collection for Cisco ISE MAB onboarding.</li>
+              <li>Installed CAD and engineering software including SolidWorks and related toolsets.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <h3>IT Operations & User Support Leadership</h3>
+            <p class="muted">Ongoing operational support work in a campus help desk environment serving students, faculty, and staff.</p>
+            <ul>
+              <li>Manage high-volume ticket and call workflows in daily IT support operations.</li>
+              <li>Support tools and systems including Microsoft 365, Active Directory, Entra ID, and remote support platforms.</li>
+              <li>Train and guide student employees in documentation, troubleshooting, and customer support standards.</li>
+              <li>Contribute to stronger consistency and service quality through process-oriented support.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <h3>Business Continuity & Resilience Planning</h3>
+            <p class="muted">Academic and applied work focused on how institutions can maintain critical services under disruption.</p>
+            <ul>
+              <li>Built planning content related to business continuity for university IT operations.</li>
+              <li>Explored critical functions, service dependencies, and recovery strategies.</li>
+              <li>Connected emergency management principles with information technology operations.</li>
+              <li>Focused on resilience as both a technical and organizational capability.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2>Skills & Tools</h2>
+          <p>A combination of technical support experience, operational leadership, and resilience planning.</p>
+        </div>
+        <div class="grid-3 skills">
+          <div class="panel">
+            <h3>Technical Tools</h3>
+            <ul>
+              <li>Active Directory</li>
+              <li>Microsoft 365</li>
+              <li>Entra ID</li>
+              <li>VMware</li>
+              <li>SysAid</li>
+              <li>Cisco ISE</li>
+              <li>Bomgar / Remote Support Tools</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Core Focus Areas</h3>
+            <ul>
+              <li>Disaster Recovery Planning</li>
+              <li>Business Continuity</li>
+              <li>IT Infrastructure Support</li>
+              <li>Incident Response Coordination</li>
+              <li>Operational Resilience</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Professional Strengths</h3>
+            <ul>
+              <li>Technical documentation</li>
+              <li>Team leadership and peer training</li>
+              <li>Customer support communication</li>
+              <li>Project coordination</li>
+              <li>Process improvement mindset</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <div class="container">
+        <div class="section-header">
+          <h2>Resume & Certifications</h2>
+          <p>Replace the placeholder links below with your actual files once you upload them to GitHub or another hosting location.</p>
+        </div>
+        <div class="panel resume-box">
+          <div>
+            <h3>Resume</h3>
+            <p class="muted">Upload your resume to this repository as <strong>resume.pdf</strong> and this button will work automatically.</p>
+          </div>
+          <a class="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        </div>
+        <div style="height: 1rem;"></div>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Current Education</h3>
+            <ul class="plain-list">
+              <li>Millersville University</li>
+              <li>Emergency Management</li>
+              <li>Expected Graduation: December 2026</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Certifications</h3>
+            <ul class="plain-list">
+              <li>CompTIA Network+ — In Progress</li>
+              <li>CompTIA Security+ — In Progress</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Update the placeholders below with your preferred public contact details.</p>
+        </div>
+        <div class="panel">
+          <ul class="plain-list">
+            <li><strong>Email:</strong> alexander.lowery@millersville.edu</li>
+            <li><strong>LinkedIn:</strong> linkedin.com/in/alexanderlowery</li>
+            <li><strong>Portfolio QR Code:</strong> Add once your site is published</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Alexander Lowery • IT Resilience Portfolio • Expected Graduation December 2026
+    </div>
+  </footer>
+</body>
+</html>
