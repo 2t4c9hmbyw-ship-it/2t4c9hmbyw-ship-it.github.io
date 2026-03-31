@@ -12,69 +12,64 @@ font-family: Arial, sans-serif;
 margin:0;
 background:#0b0f17;
 color:white;
-line-height:1.6;
 }
 
 header{
-padding:50px 20px;
 text-align:center;
+padding:60px 20px;
 background:#121826;
 }
 
 h1{
-font-size:38px;
-margin-bottom:8px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .subtitle{
 color:#4ea3ff;
-font-size:18px;
 margin-bottom:10px;
 }
 
 .tagline{
-margin-bottom:20px;
 color:#c9d4ff;
+margin-bottom:25px;
 }
 
 .button{
 display:inline-block;
-margin:6px;
-padding:10px 20px;
+margin:8px;
+padding:12px 22px;
 border-radius:6px;
 text-decoration:none;
 font-weight:bold;
 }
 
-.resume{
-background:#0077ff;
-color:white;
-}
-
-.linkedin{
-background:#0a66c2;
-color:white;
-}
-
-.github{
-background:#24292e;
-color:white;
-}
+.resume{background:#0077ff;color:white;}
+.linkedin{background:#0a66c2;color:white;}
+.github{background:#24292e;color:white;}
 
 section{
-padding:40px 20px;
-max-width:900px;
+max-width:1000px;
 margin:auto;
+padding:50px 20px;
 }
 
 h2{
 border-bottom:2px solid #4ea3ff;
-padding-bottom:8px;
-margin-bottom:20px;
+padding-bottom:10px;
+margin-bottom:25px;
 }
 
-.project{
-margin-bottom:20px;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1a2233;
+padding:20px;
+border-radius:8px;
 }
 
 .skills{
@@ -85,17 +80,13 @@ gap:10px;
 
 .skill{
 background:#1a2233;
-padding:8px 14px;
-border-radius:5px;
+padding:10px 16px;
+border-radius:20px;
 font-size:14px;
 }
 
-.cert{
-margin-bottom:10px;
-}
-
 ul{
-padding-left:20px;
+padding-left:18px;
 }
 
 footer{
@@ -103,7 +94,6 @@ text-align:center;
 padding:25px;
 background:#121826;
 color:#888;
-margin-top:30px;
 }
 
 </style>
@@ -124,14 +114,8 @@ IT Resilience | Disaster Recovery | Infrastructure
 </p>
 
 <a href="resume.pdf" class="button resume">Download Resume</a>
-
-<a href="https://www.linkedin.com/in/alexander-lowery" class="button linkedin" target="_blank">
-LinkedIn
-</a>
-
-<a href="https://github.com/2t4c9hmbyw-ship-it" class="button github" target="_blank">
-GitHub
-</a>
+<a href="https://www.linkedin.com/in/alexander-lowery" class="button linkedin">LinkedIn</a>
+<a href="https://github.com/2t4c9hmbyw-ship-it" class="button github">GitHub</a>
 
 </header>
 
@@ -141,7 +125,7 @@ GitHub
 <h2>About Me</h2>
 
 <p>
-I am an Emergency Management student at Millersville University and Student Help Desk Lead with professional experience supporting enterprise IT environments. My work focuses on disaster recovery planning, business continuity, and strengthening organizational resilience through reliable technology infrastructure.
+Emergency Management student at Millersville University and Student Help Desk Lead with experience supporting enterprise IT systems. My work focuses on disaster recovery planning, business continuity, and strengthening organizational resilience through reliable infrastructure.
 </p>
 
 </section>
@@ -151,29 +135,21 @@ I am an Emergency Management student at Millersville University and Student Help
 
 <h2>Professional Experience</h2>
 
-<div class="project">
+<div class="card">
 
 <h3>Student Help Desk Lead – Millersville University</h3>
 
-<p>
-Serve as Student Help Desk Lead supporting daily IT operations for students, faculty, and staff across campus. This role combines technical troubleshooting, operational coordination, and leadership within a fast-paced enterprise support environment.
-</p>
-
 <ul>
 
-<li>Manage and assist with resolution of approximately <strong>30–60 IT support tickets per day</strong> using SysAid ITSM.</li>
+<li>Manage 30–60 IT support tickets daily using SysAid ITSM.</li>
 
-<li>Support enterprise systems including <strong>Microsoft 365, Active Directory, Entra ID, and campus infrastructure services.</strong></li>
+<li>Support enterprise systems including Microsoft 365, Active Directory, and Entra ID.</li>
 
-<li>Provide escalation support and technical guidance for complex issues encountered by student technicians.</li>
+<li>Supervise and mentor a team of 15–20 student help desk technicians.</li>
 
-<li>Supervise and support a team of approximately <strong>15–20 student help desk technicians</strong>.</li>
+<li>Provide escalation support for complex technical issues.</li>
 
-<li>Assist with training and onboarding of new student employees.</li>
-
-<li>Maintain detailed documentation to improve troubleshooting consistency and service efficiency.</li>
-
-<li>Help coordinate communication between IT teams and campus users during technical incidents.</li>
+<li>Assist with training and onboarding new IT staff.</li>
 
 </ul>
 
@@ -186,23 +162,27 @@ Serve as Student Help Desk Lead supporting daily IT operations for students, fac
 
 <h2>Projects</h2>
 
-<div class="project">
+<div class="cards">
+
+<div class="card">
 
 <h3>University IT Disaster Recovery Plan</h3>
 
 <p>
-Developing a disaster recovery planning framework for university IT operations including system dependency mapping, business impact analysis, and coordinated recovery planning using Microsoft Teams and Loop.
+Developing disaster recovery planning framework including business impact analysis, system dependency mapping, and continuity strategies.
 </p>
 
 </div>
 
-<div class="project">
+<div class="card">
 
 <h3>Engineering Lab Infrastructure Upgrade</h3>
 
 <p>
-Coordinated deployment and configuration of approximately 60 engineering lab computers including provisioning packages, CAD software installation, and Cisco ISE network onboarding.
+Coordinated upgrade and deployment of ~60 engineering lab machines including provisioning packages and CAD software installation.
 </p>
+
+</div>
 
 </div>
 
@@ -211,7 +191,7 @@ Coordinated deployment and configuration of approximately 60 engineering lab com
 
 <section>
 
-<h2>Technical Skills & Technologies</h2>
+<h2>Technical Skills</h2>
 
 <div class="skills">
 
@@ -219,14 +199,13 @@ Coordinated deployment and configuration of approximately 60 engineering lab com
 <div class="skill">Microsoft 365</div>
 <div class="skill">Entra ID</div>
 <div class="skill">Intune</div>
-<div class="skill">SysAid ITSM</div>
+<div class="skill">SysAid</div>
 <div class="skill">VMware</div>
 <div class="skill">Cisco ISE</div>
-<div class="skill">Bomgar Remote Support</div>
-<div class="skill">Microsoft Remote Help</div>
+<div class="skill">Bomgar</div>
+<div class="skill">Remote Help</div>
 <div class="skill">Ellucian Banner</div>
 <div class="skill">Jamf</div>
-<div class="skill">Endpoint Management</div>
 
 </div>
 
@@ -235,17 +214,17 @@ Coordinated deployment and configuration of approximately 60 engineering lab com
 
 <section>
 
-<h2>Leadership & Management Experience</h2>
+<h2>Leadership Experience</h2>
 
 <ul>
 
-<li>Supervise and support a team of approximately 15–20 student help desk technicians.</li>
+<li>Lead team of 15–20 student technicians within university IT help desk.</li>
 
-<li>Coordinate daily IT support operations handling high ticket volume.</li>
+<li>Coordinate support operations for high ticket volume environments.</li>
 
-<li>Provide escalation support and mentoring for complex technical issues.</li>
+<li>Provide mentorship and escalation support for complex technical issues.</li>
 
-<li>Assist with training and onboarding new help desk technicians.</li>
+<li>Assist with training and onboarding of new help desk technicians.</li>
 
 </ul>
 
@@ -271,21 +250,17 @@ Expected Graduation: December 2026
 
 <h2>Certifications</h2>
 
-<div class="cert">
-<strong>Google IT Support Professional Certificate</strong> – Coursera (Earned)
-</div>
+<ul>
 
-<div class="cert">
-<strong>Google Project Management Professional Certificate</strong> – Coursera (Earned)
-</div>
+<li>Google IT Support Professional Certificate — Coursera (Earned)</li>
 
-<div class="cert">
-<strong>CompTIA Network+</strong> – In Progress
-</div>
+<li>Google Project Management Professional Certificate — Coursera (Earned)</li>
 
-<div class="cert">
-<strong>CompTIA Security+</strong> – Planned
-</div>
+<li>CompTIA Network+ — In Progress</li>
+
+<li>CompTIA Security+ — Planned</li>
+
+</ul>
 
 </section>
 
