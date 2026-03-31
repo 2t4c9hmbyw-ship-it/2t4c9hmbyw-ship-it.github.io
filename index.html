@@ -1,275 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alexander Lowery | IT Resilience Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander Lowery | IT Resilience Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --bg2:#121826;
+      --panel:#182235;
+      --panel2:#1d2940;
+      --text:#f3f7ff;
+      --muted:#b7c5df;
+      --accent:#4ea3ff;
+      --line:#2b3b59;
+      --shadow:0 8px 24px rgba(0,0,0,.28);
+      --max:1050px;
+    }
 
-<style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0b0f17;
-color:white;
-}
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:linear-gradient(180deg,#0b0f17 0%, #101726 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
 
-header{
-text-align:center;
-padding:60px 20px;
-background:#121826;
-}
+    a{color:inherit;}
 
-h1{
-font-size:40px;
-margin-bottom:10px;
-}
+    .container{
+      max-width:var(--max);
+      margin:auto;
+      padding:0 20px;
+    }
 
-.subtitle{
-color:#4ea3ff;
-margin-bottom:10px;
-}
+    header{
+      background:
+        radial-gradient(circle at top right, rgba(78,163,255,.18), transparent 28%),
+        linear-gradient(180deg, #121826 0%, #0f1624 100%);
+      border-bottom:1px solid var(--line);
+    }
 
-.tagline{
-color:#c9d4ff;
-margin-bottom:25px;
-}
+    .hero{
+      padding:72px 20px 56px;
+      text-align:center;
+    }
 
-.button{
-display:inline-block;
-margin:8px;
-padding:12px 22px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-}
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      letter-spacing:.3px;
+    }
 
-.resume{background:#0077ff;color:white;}
-.linkedin{background:#0a66c2;color:white;}
-.github{background:#24292e;color:white;}
+    .subtitle{
+      color:var(--accent);
+      font-weight:700;
+      margin-bottom:10px;
+      font-size:18px;
+    }
 
-section{
-max-width:1000px;
-margin:auto;
-padding:50px 20px;
-}
+    .tagline{
+      color:var(--muted);
+      margin:0 auto 24px;
+      max-width:720px;
+      font-size:17px;
+    }
 
-h2{
-border-bottom:2px solid #4ea3ff;
-padding-bottom:10px;
-margin-bottom:25px;
-}
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:8px;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
+    .button{
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:.2s ease;
+      box-shadow:var(--shadow);
+    }
 
-.card{
-background:#1a2233;
-padding:20px;
-border-radius:8px;
-}
+    .button:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
+    .resume{background:#0077ff;color:white;}
+    .linkedin{background:#0a66c2;color:white;}
+    .github{background:#24292e;color:white;}
 
-.skill{
-background:#1a2233;
-padding:10px 16px;
-border-radius:20px;
-font-size:14px;
-}
+    nav{
+      border-top:1px solid rgba(255,255,255,.04);
+      border-bottom:1px solid var(--line);
+      background:rgba(10,14,22,.75);
+      backdrop-filter:blur(8px);
+    }
 
-ul{
-padding-left:18px;
-}
+    .nav-inner{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:18px;
+      padding:14px 10px;
+      font-size:15px;
+    }
 
-footer{
-text-align:center;
-padding:25px;
-background:#121826;
-color:#888;
-}
+    .nav-inner a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:700;
+    }
 
-</style>
+    .nav-inner a:hover{
+      color:var(--accent);
+    }
+
+    section{
+      padding:50px 0;
+    }
+
+    h2{
+      font-size:28px;
+      margin:0 0 18px;
+      padding-bottom:10px;
+      border-bottom:2px solid var(--accent);
+      display:inline-block;
+    }
+
+    p{
+      margin-top:0;
+      color:var(--text);
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h3{
+      margin-top:0;
+      margin-bottom:12px;
+      font-size:20px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .skill{
+      background:#1a2233;
+      border:1px solid #2a3855;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      color:#e8f0ff;
+    }
+
+    ul{
+      margin:0;
+      padding-left:20px;
+    }
+
+    li{
+      margin-bottom:8px;
+    }
+
+    .highlight{
+      border-left:4px solid var(--accent);
+      padding-left:16px;
+      margin-top:8px;
+    }
+
+    .edu-cert{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:22px;
+    }
+
+    footer{
+      margin-top:20px;
+      padding:26px 20px;
+      text-align:center;
+      background:#121826;
+      color:#94a3bd;
+      border-top:1px solid var(--line);
+    }
+
+    @media (max-width:640px){
+      h1{font-size:34px;}
+      .subtitle{font-size:16px;}
+      .tagline{font-size:16px;}
+      .hero{padding:58px 20px 46px;}
+      section{padding:42px 0;}
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-
-<h1>Alexander Lowery</h1>
-
-<p class="subtitle">
-Bridging Emergency Management and Information Technology
-</p>
-
-<p class="tagline">
-IT Resilience | Disaster Recovery | Infrastructure
-</p>
-
-<a href="resume.pdf" class="button resume">Download Resume</a>
-<a href="https://www.linkedin.com/in/alexander-lowery" class="button linkedin">LinkedIn</a>
-<a href="https://github.com/2t4c9hmbyw-ship-it" class="button github">GitHub</a>
-
-</header>
-
-
-<section>
-
-<h2>About Me</h2>
-
-<p>
-Emergency Management student at Millersville University and Student Help Desk Lead with experience supporting enterprise IT systems. My work focuses on disaster recovery planning, business continuity, and strengthening organizational resilience through reliable infrastructure.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Professional Experience</h2>
-
-<div class="card">
-
-<h3>Student Help Desk Lead – Millersville University</h3>
-
-<ul>
-
-<li>Manage 30–60 IT support tickets daily using SysAid ITSM.</li>
-
-<li>Support enterprise systems including Microsoft 365, Active Directory, and Entra ID.</li>
-
-<li>Supervise and mentor a team of 15–20 student help desk technicians.</li>
-
-<li>Provide escalation support for complex technical issues.</li>
-
-<li>Assist with training and onboarding new IT staff.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Projects</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>University IT Disaster Recovery Plan</h3>
-
-<p>
-Developing disaster recovery planning framework including business impact analysis, system dependency mapping, and continuity strategies.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Engineering Lab Infrastructure Upgrade</h3>
-
-<p>
-Coordinated upgrade and deployment of ~60 engineering lab machines including provisioning packages and CAD software installation.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Technical Skills</h2>
-
-<div class="skills">
-
-<div class="skill">Active Directory</div>
-<div class="skill">Microsoft 365</div>
-<div class="skill">Entra ID</div>
-<div class="skill">Intune</div>
-<div class="skill">SysAid</div>
-<div class="skill">VMware</div>
-<div class="skill">Cisco ISE</div>
-<div class="skill">Bomgar</div>
-<div class="skill">Remote Help</div>
-<div class="skill">Ellucian Banner</div>
-<div class="skill">Jamf</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Leadership Experience</h2>
-
-<ul>
-
-<li>Lead team of 15–20 student technicians within university IT help desk.</li>
-
-<li>Coordinate support operations for high ticket volume environments.</li>
-
-<li>Provide mentorship and escalation support for complex technical issues.</li>
-
-<li>Assist with training and onboarding of new help desk technicians.</li>
-
-</ul>
-
-</section>
-
-
-<section>
-
-<h2>Education</h2>
-
-<p>
-
-<strong>Millersville University</strong><br>
-B.S. Emergency Management<br>
-Expected Graduation: December 2026
-
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Certifications</h2>
-
-<ul>
-
-<li>Google IT Support Professional Certificate — Coursera (Earned)</li>
-
-<li>Google Project Management Professional Certificate — Coursera (Earned)</li>
-
-<li>CompTIA Network+ — In Progress</li>
-
-<li>CompTIA Security+ — Planned</li>
-
-</ul>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 Alexander Lowery</p>
-
-</footer>
+  <header>
+    <div class="container hero">
+      <h1>Alexander Lowery</h1>
+      <div class="subtitle">Bridging Emergency Management and Information Technology</div>
+      <p class="tagline">
+        IT Resilience | Disaster Recovery | Infrastructure | University Technology Operations
+      </p>
+
+      <div class="button-row">
+        <a href="resume.pdf" class="button resume">Download Resume</a>
+        <a href="https://www.linkedin.com/in/alexander-lowery" class="button linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/2t4c9hmbyw-ship-it" class="button github" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <nav>
+      <div class="container nav-inner">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#scenario">Scenario</a>
+        <a href="#skills">Skills</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="muted">
+        I am an Emergency Management student at Millersville University and Student Help Desk Lead with professional experience supporting enterprise IT environments. My work focuses on disaster recovery planning, business continuity, and strengthening organizational resilience through reliable technology infrastructure, operational coordination, and service continuity.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Professional Experience</h2>
+      <div class="card">
+        <h3>Student Help Desk Lead – Millersville University</h3>
+        <p class="muted">
+          Millersville, PA | December 2024 – Present
+        </p>
+        <ul>
+          <li>Provide enterprise IT support for students, faculty, and staff in a high-volume university environment.</li>
+          <li>Manage and assist with resolution of approximately <strong>30–60 support tickets daily</strong> through SysAid ITSM.</li>
+          <li>Support core identity and productivity systems including <strong>Microsoft 365, Active Directory, Entra ID, and endpoint management tools</strong>.</li>
+          <li>Provide technical escalation support for complex issues involving user accounts, access management, and endpoint troubleshooting.</li>
+          <li>Supervise and mentor a team of approximately <strong>15–20 student help desk technicians</strong> while maintaining service quality and response times.</li>
+          <li>Assist with training and onboarding new technicians and help maintain internal troubleshooting documentation.</li>
+          <li>Coordinate communication between IT staff and campus users during technical incidents affecting university systems.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>University IT Disaster Recovery Plan</h3>
+          <p class="muted">
+            Developing a disaster recovery planning framework for university IT operations including business impact analysis, dependency mapping, and coordinated recovery planning using Microsoft Teams and Loop.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Disaster Recovery &amp; IT Resilience Research</h3>
+          <p class="muted">
+            Developing a university-focused disaster recovery framework that examines business continuity, IT infrastructure dependencies, operational resilience, and coordinated recovery planning for higher-education technology environments.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Engineering Lab Infrastructure Upgrade</h3>
+          <p class="muted">
+            Coordinated deployment and configuration of approximately 60 engineering lab computers, including provisioning packages, CAD software installation, and Cisco ISE network onboarding.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>IT Help Desk Operations</h3>
+          <p class="muted">
+            Support high-volume enterprise IT operations involving Microsoft 365, identity services, user account support, endpoint coordination, and consistent technical documentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scenario">
+    <div class="container">
+      <h2>Incident Response Scenario</h2>
+      <div class="card">
+        <h3>Banner Phantom – University System Compromise Scenario</h3>
+        <p class="muted">
+          A portfolio concept focused on how a university IT environment could respond to suspicious access activity, posture control gaps, and potential compromise of sensitive administrative systems.
+        </p>
+
+        <div class="highlight">
+          <ul>
+            <li>Scenario includes potential non-compliant device access and unusual account behavior tied to critical university systems.</li>
+            <li>Highlights the importance of detection, escalation, containment, and continuity planning in higher education IT environments.</li>
+            <li>Demonstrates my interest in the overlap between disaster recovery, cybersecurity awareness, and resilient IT operations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Skills & Technologies</h2>
+      <div class="skills">
+        <div class="skill">Active Directory</div>
+        <div class="skill">Microsoft 365</div>
+        <div class="skill">Entra ID</div>
+        <div class="skill">Intune</div>
+        <div class="skill">SysAid ITSM</div>
+        <div class="skill">VMware</div>
+        <div class="skill">Cisco ISE</div>
+        <div class="skill">Bomgar Remote Support</div>
+        <div class="skill">Microsoft Remote Help</div>
+        <div class="skill">Ellucian Banner</div>
+        <div class="skill">Jamf</div>
+        <div class="skill">Windows Administration</div>
+        <div class="skill">Endpoint Management</div>
+        <div class="skill">Account Management</div>
+        <div class="skill">IT Infrastructure Support</div>
+        <div class="skill">Business Continuity</div>
+        <div class="skill">Disaster Recovery</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="container">
+      <h2>Leadership & Management Experience</h2>
+      <div class="card">
+        <ul>
+          <li>Lead and support a team of approximately 15–20 student technicians within the university IT help desk.</li>
+          <li>Coordinate daily operational workflows in a high-ticket-volume support environment.</li>
+          <li>Provide mentoring and escalation support for technical issues involving identity, endpoint, and application support.</li>
+          <li>Assist with training, onboarding, and maintaining documentation standards for consistent service delivery.</li>
+          <li>Promote communication, accountability, and teamwork in a fast-paced campus technology setting.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container edu-cert">
+      <div>
+        <h2>Education</h2>
+        <div class="card">
+          <h3>Millersville University</h3>
+          <p class="muted">
+            B.S. Emergency Management<br />
+            Expected Graduation: December 2026
+          </p>
+        </div>
+      </div>
+
+      <div id="certifications">
+        <h2>Certifications</h2>
+        <div class="card">
+          <ul>
+            <li><strong>Google IT Support Professional Certificate</strong> — Coursera (Earned)</li>
+            <li><strong>Google Project Management Professional Certificate</strong> — Coursera (Earned)</li>
+            <li><strong>CompTIA Network+</strong> — In Progress</li>
+            <li><strong>CompTIA Security+</strong> — Planned</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Alexander Lowery
+  </footer>
 
 </body>
 </html>
