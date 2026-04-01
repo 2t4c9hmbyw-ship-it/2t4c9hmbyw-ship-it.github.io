@@ -25,8 +25,6 @@
 
 *{box-sizing:border-box;}
 
-html{scroll-behavior:smooth;}
-
 body{
 margin:0;
 font-family:Arial,sans-serif;
@@ -81,13 +79,6 @@ padding:12px 22px;
 border-radius:8px;
 text-decoration:none;
 font-weight:700;
-display:inline-block;
-transition:0.2s ease;
-}
-
-.button:hover{
-transform:translateY(-1px);
-opacity:0.95;
 }
 
 .resume{background:#0077ff;color:white;}
@@ -114,7 +105,6 @@ flex-wrap:wrap;
 color:var(--muted);
 text-decoration:none;
 font-weight:600;
-font-size:15px;
 }
 
 .navbar a:hover{color:var(--accent);}
@@ -140,24 +130,9 @@ border:1px solid var(--line);
 border-radius:12px;
 padding:24px;
 box-shadow:var(--shadow);
-transition:0.25s ease;
-}
-
-.card:hover{
-background:var(--panel-hover);
-transform:translateY(-6px);
-box-shadow:var(--shadow),var(--glow);
-border-color:rgba(78,163,255,.55);
 }
 
 .card h3{margin-top:0;margin-bottom:12px;}
-
-.impact-number{
-font-size:32px;
-font-weight:700;
-color:var(--accent);
-margin-bottom:8px;
-}
 
 .skills{
 display:flex;
@@ -199,8 +174,6 @@ color:#94a3bd;
 border-top:1px solid var(--line);
 }
 
-/* Mobile */
-
 @media(max-width:900px){
 .grid{grid-template-columns:repeat(2,1fr);}
 }
@@ -215,6 +188,7 @@ border-top:1px solid var(--line);
 <body>
 
 <header>
+
 <div class="container hero">
 
 <h1>Alexander Lowery</h1>
@@ -250,100 +224,43 @@ IT Resilience | Disaster Recovery | Infrastructure | University Technology Opera
 
 </header>
 
-
-<!-- ABOUT -->
-
 <section id="about">
 <div class="container">
-
 <h2>About Me</h2>
 
 <p>
 Emergency Management student at Millersville University and Student Help Desk Lead with experience supporting enterprise IT environments. My work focuses on disaster recovery planning, business continuity, and strengthening organizational resilience through reliable technology infrastructure and operational coordination.
 </p>
 
-<div class="grid">
-
-<div class="card">
-<div class="impact-number">600+</div>
-<p>Faculty and Staff Devices Deployed During Campus Technology Refresh and Windows 11 Upgrade</p>
-</div>
-
-<div class="card">
-<div class="impact-number">30–60</div>
-<p>IT Support Tickets Managed Daily in a High-Volume University Environment</p>
-</div>
-
-<div class="card">
-<div class="impact-number">15–20</div>
-<p>Student Technicians Supervised and Supported as Student Help Desk Lead</p>
-</div>
-
-<div class="card">
-<div class="impact-number">60+</div>
-<p>Engineering Lab Computers Deployed and Configured for Academic Programs</p>
-</div>
-
-<div class="card">
-<div class="impact-number">Enterprise IT</div>
-<p>Systems Supported Including Microsoft 365, Active Directory, Entra ID, and Endpoint Tools</p>
-</div>
-
-<div class="card">
-<div class="impact-number">IT Operations</div>
-<p>Help Desk Documentation and Knowledge Base Development for Technician Training</p>
-</div>
-
-</div>
 </div>
 </section>
 
 
-<!-- PROJECTS -->
-
 <section id="projects">
 <div class="container">
-
 <h2>Projects</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>University IT Disaster Recovery Plan</h3>
-<p>Developing a disaster recovery planning framework for university IT operations including business impact analysis and coordinated recovery planning.</p>
+<p>Developing a disaster recovery framework for university IT operations.</p>
 </div>
 
 <div class="card">
 <h3>Disaster Recovery & IT Resilience Research</h3>
-<p>Developing a university-focused disaster recovery framework examining business continuity and IT infrastructure dependencies.</p>
+<p>Research focused on infrastructure recovery and continuity planning.</p>
 </div>
 
 <div class="card">
 <h3>Campus Device Deployment & Windows 11 Upgrade</h3>
-<p>Assisted in large-scale deployment of approximately 600 machines to faculty and staff.</p>
-</div>
-
-<div class="card">
-<h3>IT Documentation & Knowledge Base Development</h3>
-<p>Contributed to development of internal IT documentation supporting technician onboarding.</p>
-</div>
-
-<div class="card">
-<h3>Engineering Lab Infrastructure Upgrade</h3>
-<p>Coordinated deployment of engineering lab computers including provisioning packages and CAD software.</p>
-</div>
-
-<div class="card">
-<h3>IT Help Desk Operations</h3>
-<p>Support high-volume enterprise IT operations involving Microsoft 365 and identity services.</p>
+<p>Assisted in deployment of ~600 machines across campus.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-
-<!-- DOCUMENTATION -->
 
 <section id="documentation">
 
@@ -354,7 +271,6 @@ Emergency Management student at Millersville University and Student Help Desk Le
 <div class="grid">
 
 <div class="card">
-
 <h3>System Rebuild Documentation (Redacted)</h3>
 
 <p>
@@ -362,6 +278,20 @@ Documentation outlining the rebuild process used for restoring and configuring s
 </p>
 
 <a href="Rebuild_Documentation_REDACTED.pdf" target="_blank">
+<strong>Open Documentation</strong>
+</a>
+
+</div>
+
+
+<div class="card">
+<h3>Adjunct Loaner Checklist (Redacted)</h3>
+
+<p>
+Documentation created to support the loaner device process for adjunct users. Sensitive operational and institutional details have been redacted for security and privacy purposes.
+</p>
+
+<a href="Adjunct_Loaner_Checklist_REDACTED.pdf" target="_blank">
 <strong>Open Documentation</strong>
 </a>
 
@@ -378,10 +308,7 @@ This section is still a work in progress. Additional documentation will be added
 </section>
 
 
-<!-- SKILLS -->
-
 <section id="skills">
-
 <div class="container">
 
 <h2>Technical Skills</h2>
@@ -392,11 +319,11 @@ This section is still a work in progress. Additional documentation will be added
 <div class="skill">Microsoft 365</div>
 <div class="skill">Entra ID</div>
 <div class="skill">Intune</div>
-<div class="skill">SysAid</div>
+<div class="skill">SysAid ITSM</div>
 <div class="skill">VMware</div>
 <div class="skill">Cisco ISE</div>
-<div class="skill">Bomgar</div>
-<div class="skill">Remote Help</div>
+<div class="skill">Bomgar Remote Support</div>
+<div class="skill">Microsoft Remote Help</div>
 <div class="skill">Ellucian Banner</div>
 <div class="skill">Jamf</div>
 <div class="skill">Endpoint Management</div>
@@ -406,38 +333,24 @@ This section is still a work in progress. Additional documentation will be added
 </div>
 
 </div>
-
 </section>
 
 
-<!-- EDUCATION -->
-
 <section id="education">
-
 <div class="container">
 
 <h2>Education</h2>
 
 <div class="card">
-
 <h3>Millersville University</h3>
-
-<p>
-B.S. Emergency Management<br>
-Expected Graduation: December 2026
-</p>
-
+<p>B.S. Emergency Management<br>Expected Graduation: December 2026</p>
 </div>
 
 </div>
-
 </section>
 
 
-<!-- CERTIFICATIONS -->
-
 <section id="certifications">
-
 <div class="container">
 
 <h2>Certifications</h2>
@@ -446,16 +359,12 @@ Expected Graduation: December 2026
 
 <div class="card">
 <h3>Google IT Support Professional Certificate</h3>
-<a href="Google_IT_Support_Cert_A_Lowery.pdf" target="_blank">
-<strong>View Certificate</strong>
-</a>
+<a href="Google_IT_Support_Cert_A_Lowery.pdf" target="_blank"><strong>View Certificate</strong></a>
 </div>
 
 <div class="card">
 <h3>Google Project Management Professional Certificate</h3>
-<a href="Project_Management_Cert_A_Lowery.pdf" target="_blank">
-<strong>View Certificate</strong>
-</a>
+<a href="Project_Management_Cert_A_Lowery.pdf" target="_blank"><strong>View Certificate</strong></a>
 </div>
 
 <div class="card">
@@ -471,14 +380,10 @@ Expected Graduation: December 2026
 </div>
 
 </div>
-
 </section>
 
 
-<!-- CONTACT -->
-
 <section id="contact">
-
 <div class="container">
 
 <h2>Connect With Me</h2>
@@ -497,7 +402,6 @@ Feel free to reach out if you'd like to connect or discuss opportunities in IT i
 </div>
 
 </div>
-
 </section>
 
 
